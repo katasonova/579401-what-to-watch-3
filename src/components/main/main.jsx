@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Main = (props) => {
-  return (<React.Fragment>
+  return (<>
     <section className="movie-card">
       <div className="movie-card__bg">
         <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
@@ -34,14 +34,14 @@ const Main = (props) => {
           <div className="movie-card__desc">
             <h2 className="movie-card__title">{
               // eslint-disable-next-line react/prop-types
-              props.MovieTitle}</h2>
+              props.movieTitle}</h2>
             <p className="movie-card__meta">
               <span className="movie-card__genre">{
                 // eslint-disable-next-line react/prop-types
-                props.MovieGenre}</span>
+                props.movieGenre}</span>
               <span className="movie-card__year">{
                 // eslint-disable-next-line react/prop-types
-                props.MovieReleaseYears}</span>
+                props.movieReleaseYears}</span>
             </p>
 
             {/* <div className="movie-card__buttons">
@@ -306,7 +306,7 @@ const Main = (props) => {
         </div>
       </footer>
     </div>
-  </React.Fragment>);
+  </>);
 };
 
 export default Main;
