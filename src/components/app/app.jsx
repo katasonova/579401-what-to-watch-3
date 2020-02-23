@@ -2,8 +2,10 @@ import React from 'react';
 import Main from '../main/main.jsx';
 import PropTypes from 'prop-types';
 
+const onCardTitleClick = () => {};
+
 const App = (props) => {
-  return <Main moviesTitles={props.moviesTitles} selectedMovie={props.selectedMovie} movieGenre={props.movieGenre} movieReleaseYears={props.movieReleaseYears}/>;
+  return <Main moviesTitles={props.moviesTitles} selectedMovie={props.selectedMovie} movieGenre={props.movieGenre} movieReleaseYears={props.movieReleaseYears} onCardTitleClick={onCardTitleClick}/>;
 };
 
 App.propTypes = {

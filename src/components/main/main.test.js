@@ -8,6 +8,7 @@ const movieGenre = `Historical`;
 const movieReleaseYears = 2050;
 
 it(`<Main /> is expected to render the main page`, () => {
-  const main = renderer.create(<Main moviesTitles={moviesTitles} selectedMovie={selectedMovie} movieGenre={movieGenre} movieReleaseYears={movieReleaseYears}/>).toJSON();
+  const onCardTitleClick = jest.fn();
+  const main = renderer.create(<Main moviesTitles={moviesTitles} selectedMovie={selectedMovie} movieGenre={movieGenre} movieReleaseYears={movieReleaseYears} onCardTitleClick={onCardTitleClick}/>).toJSON();
   expect(main).toMatchSnapshot();
 });
