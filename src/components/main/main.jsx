@@ -100,13 +100,13 @@ const Main = (props) => {
         </ul>
 
         <div className="catalog__movies-list">
-          { props.movieTitle.map(((el, index) => (
+          { props.moviesTitles.map(((el, index) => (
             <article className="small-movie-card catalog__movies-card" key={el + index}>
               <div className="small-movie-card__image">
                 <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt={
                   el} width="280" height="175" />
               </div>
-              <h3 className="small-movie-card__title">
+              <h3 onClick={props.onCardTitleClick} className="small-movie-card__title">
                 <a className="small-movie-card__link" href="movie-page.html">{
                   el}</a>
               </h3>
@@ -139,7 +139,8 @@ Main.propTypes = {
   selectedMovie: PropTypes.string.isRequired,
   movieGenre: PropTypes.string.isRequired,
   movieReleaseYears: PropTypes.number.isRequired,
-  movieTitle: PropTypes.arrayOf(PropTypes.string).isRequired
+  moviesTitles: PropTypes.arrayOf(PropTypes.string).isRequired,
+  onCardTitleClick: PropTypes.func.isRequired
 };
 
 export default Main;
