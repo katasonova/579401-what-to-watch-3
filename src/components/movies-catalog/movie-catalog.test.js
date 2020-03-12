@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from 'react-test-renderer';
-import App from './app.jsx';
+import MoviesCatalog from '../movies-catalog/movies-catalog.jsx';
 
 const films = [{
   "id": 1,
@@ -40,11 +40,9 @@ const films = [{
   "is_favorite": true
 }];
 
-it(`<App /> is expected to render selected movie, it's release year and genre, as well as movies titles`, () => {
+it(`<SmallMovieCard /> is expected to render a movie card`, () => {
   const onCardTitleClick = jest.fn();
 
-  const app = renderer.create(<App
-    selectedMovie={films[0].name} movieGenre={films[0].genre} movieReleaseYears={films[0].released} films={films} onCardTitleClick={onCardTitleClick}
-  />).toJSON();
-  expect(app).toMatchSnapshot();
+  const moviesList = renderer.create(<MoviesCatalog films={films} onCardTitleClick={onCardTitleClick}/>).toJSON();
+  expect(moviesList).toMatchSnapshot();
 });

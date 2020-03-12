@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Elena Katasonova](https://up.htmlacademy.ru/react/3/user/579401).
-* Наставник: [Artem Rudov] (https://htmlacademy.ru/profile/artrudov).
+* Наставник: [Artem Rudov](https://htmlacademy.ru/profile/artrudov).
 
 ---
 

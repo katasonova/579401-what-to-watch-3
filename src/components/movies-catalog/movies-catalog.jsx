@@ -6,23 +6,22 @@ class MoviesCatalog extends PureComponent {
   constructor(props) {
     super(props);
 
-    //  что должно быть в стейт активной карточи фильма??
     this.state = {
-      isCardActive: false
+      activeCard: null
     };
+  }
+
+  _cardHoverHandle(card) {
+    return () => this.setState({
+      activeCard: card
+    });
   }
 
   render() {
     return (
       <div className="catalog__movies-list">
-        {this.props.films.map((el, index) => (
-          <SmallMovieCard onMouseOver={(evt) => {
-            const isMouseOver = evt.target.pointerover;
-
-            this.setState({
-              isCardActive: isMouseOver
-            });
-          }} title={el.title} key={el + index}/>
+        {this.props.films.map((el) => (
+          <SmallMovieCard onMouseOver={this._cardHoverHandle(el)} name={el.name} key={el.id} onCardTitleClick={this.props.onCardTitleClick}/>
         ))}
       </div>
     );
@@ -31,6 +30,7 @@ class MoviesCatalog extends PureComponent {
 
 MoviesCatalog.propTypes = {
   films: PropTypes.arrayOf(PropTypes.object).isRequired,
+  onCardTitleClick: PropTypes.func.isRequired,
 };
 
 export default MoviesCatalog;

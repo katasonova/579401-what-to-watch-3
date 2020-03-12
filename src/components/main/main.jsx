@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MoviesCatalog from '../movies-catalog/movies-catalog.jsx';
 
-const Main = ({selectedMovie, movieGenre, movieReleaseYears, films}) => {
+const Main = ({selectedMovie, movieGenre, movieReleaseYears, films, onCardTitleClick}) => {
   return (<>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -47,7 +47,7 @@ const Main = ({selectedMovie, movieGenre, movieReleaseYears, films}) => {
             <div className="movie-card__buttons">
               <button className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
-                  <use xlinkHsref="#play-s"></use>
+                  <use xlinkhsref="#play-s"></use>
                 </svg>
                 <span>Play</span>
               </button>
@@ -100,7 +100,7 @@ const Main = ({selectedMovie, movieGenre, movieReleaseYears, films}) => {
           </li>
         </ul>
 
-        <MoviesCatalog films={films}/>
+        <MoviesCatalog films={films} onCardTitleClick={onCardTitleClick}/>
 
         <div className="catalog__more">
           <button className="catalog__button" type="button">Show more</button>
@@ -128,7 +128,7 @@ Main.propTypes = {
   selectedMovie: PropTypes.string.isRequired,
   movieGenre: PropTypes.string.isRequired,
   movieReleaseYears: PropTypes.number.isRequired,
-  // onCardTitleClick: PropTypes.func.isRequired,
+  onCardTitleClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
