@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app/app.jsx';
-
-const movieTitle = `Harry Potter`;
-const moviesTitles = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`];
-const movieGenre = `Fantasy`;
-const movieReleaseYears = 2020;
+import films from './mocks/films.js';
 
 ReactDOM.render(<App
-  moviesTitles={moviesTitles} selectedMovie={movieTitle} movieGenre={movieGenre} movieReleaseYears={movieReleaseYears}
+  selectedMovie={films[0].name} movieGenre={films[0].genre} movieReleaseYears={films[0].released}
+  films={films}
 />, document.getElementById(`root`));

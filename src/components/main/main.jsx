@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MoviesCatalog from '../movies-catalog/movies-catalog.jsx';
 
-const Main = (props) => {
+const Main = ({selectedMovie, movieGenre, movieReleaseYears, films, onCardTitleClick}) => {
   return (<>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -30,23 +31,23 @@ const Main = (props) => {
         <div className="movie-card__info">
           <div className="movie-card__poster">
             <img src="img/the-grand-budapest-hotel-poster.jpg" alt={
-              props.selectedMovie} width="218" height="327" />
+              selectedMovie} width="218" height="327" />
           </div>
 
           <div className="movie-card__desc">
             <h2 className="movie-card__title">{
-              props.selectedMovie}</h2>
+              selectedMovie}</h2>
             <p className="movie-card__meta">
               <span className="movie-card__genre">{
-                props.movieGenre}</span>
+                movieGenre}</span>
               <span className="movie-card__year">{
-                props.movieReleaseYears}</span>
+                movieReleaseYears}</span>
             </p>
 
             <div className="movie-card__buttons">
               <button className="btn btn--play movie-card__button" type="button">
                 <svg viewBox="0 0 19 19" width="19" height="19">
-                  <use xlinkHsref="#play-s"></use>
+                  <use xlinkhsref="#play-s"></use>
                 </svg>
                 <span>Play</span>
               </button>
@@ -99,19 +100,7 @@ const Main = (props) => {
           </li>
         </ul>
 
-        <div className="catalog__movies-list">
-          { props.moviesTitles.map(((el, index) => (
-            <article className="small-movie-card catalog__movies-card" key={el + index}>
-              <div className="small-movie-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt={
-                  el} width="280" height="175" />
-              </div>
-              <h3 onClick={props.onCardTitleClick} className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">{
-                  el}</a>
-              </h3>
-            </article>)))}
-        </div>
+        <MoviesCatalog films={films} onCardTitleClick={onCardTitleClick}/>
 
         <div className="catalog__more">
           <button className="catalog__button" type="button">Show more</button>
@@ -139,8 +128,8 @@ Main.propTypes = {
   selectedMovie: PropTypes.string.isRequired,
   movieGenre: PropTypes.string.isRequired,
   movieReleaseYears: PropTypes.number.isRequired,
-  moviesTitles: PropTypes.arrayOf(PropTypes.string).isRequired,
-  onCardTitleClick: PropTypes.func.isRequired
+  onCardTitleClick: PropTypes.func.isRequired,
+  films: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Main;
