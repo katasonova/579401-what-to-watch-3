@@ -7,7 +7,8 @@ class MoviesCatalog extends PureComponent {
     super(props);
 
     this.state = {
-      activeCard: null
+      activeCard: null,
+      isPlaying: false
     };
   }
 
@@ -21,7 +22,7 @@ class MoviesCatalog extends PureComponent {
     return (
       <div className="catalog__movies-list">
         {this.props.films.map((el) => (
-          <SmallMovieCard onMouseOver={this._cardHoverHandle(el)} name={el.name} key={el.id} onCardTitleClick={this.props.onCardTitleClick}/>
+          <SmallMovieCard onMouseOver={this._cardHoverHandle(el)} name={el.name} key={el.id} onCardTitleClick={this.props.onCardTitleClick} src={el.preview_video_link} poster={el.preview_image}/>
         ))}
       </div>
     );
